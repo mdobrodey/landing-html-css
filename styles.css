@@ -3179,6 +3179,9 @@ body.menu-open {
     display: flex;
     transform: scaleX(-1);
     margin-left: 0.875rem;
+    border: none;
+    background: none;
+    margin-top: 4px;
   }
 
   .primary-nav {

@@ -6,10 +6,10 @@ function updateCountdown() {
     .replace(/\s+/g, '')
     .replace(/:/g, '');
 
-  let days = parseInt(timeString.substr(0, 2));
-  let hours = parseInt(timeString.substr(2, 2));
-  let minutes = parseInt(timeString.substr(4, 2));
-  let seconds = parseInt(timeString.substr(6, 2));
+  let days = parseInt(timeString.substring(0, 2));
+  let hours = parseInt(timeString.substring(2, 4));
+  let minutes = parseInt(timeString.substring(4, 6));
+  let seconds = parseInt(timeString.substring(6, 8));
 
   seconds--;
 

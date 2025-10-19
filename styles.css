@@ -2342,22 +2342,6 @@ body.menu-open {
     font-size: 0.75rem;
   }
 
-  .preview-cards-scroll {
-    display: flex;
-    flex-direction: row;
-    gap: 0.75rem;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    width: 100%;
-    padding-bottom: 0.5rem;
-    order: 3;
-  }
-
-  .preview-cards-scroll::-webkit-scrollbar {
-    display: none;
-  }
-
   .preview-card-narrow {
     width: 252px;
     min-width: 252px;
@@ -3554,6 +3538,44 @@ body.menu-open {
 
   .secondary-nav-inner {
     margin: 0 0.313rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .advantage-card {
+    min-height: 500px;
+    min-width: 290px;
+  }
+
+  .card-title {
+    font-size: 1.74rem;
+  }
+
+  .card-hover-text {
+    font-size: 1rem;
+  }
+
+  .is-tall {
+    font-size: 1.74rem !important;
+  }
+
+  .service-card {
+    min-width: 290px;
+  }
+
+  .service-card-number {
+    font-size: 6.8rem;
+    margin-top: 2.56rem;
+  }
+
+  .if-small {
+    font-size: 6.8rem !important;
+    margin-top: 2.64rem !important;
+  }
+
+  .services-grid .service-card:nth-child(1) .service-card-number {
+    font-size: 6.8rem;
+    margin-top: 2.5rem;
   }
 }
 

@@ -3895,6 +3895,10 @@ body.menu-open {
     height: 36px;
   }
 
+  .hero-title-line2 svg {
+    margin-bottom: 4px;
+  }
+
   .promo-title {
     font-size: 3.5rem;
   }

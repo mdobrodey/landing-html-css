@@ -120,9 +120,14 @@ function initDesktopCardHover() {
 
     const cards = document.querySelectorAll('.preview-card-narrow');
     let lastExpandedCard = document.querySelector('[data-card="digital"]');
+    let isAnimating = false;
 
     cards.forEach((card) => {
       card.addEventListener('mouseenter', function () {
+        if (isAnimating) return;
+
+        isAnimating = true;
+
         cards.forEach((c) => {
           c.classList.remove('expanded');
           const content = c.querySelector('.preview-card-content-medium');
@@ -134,10 +139,16 @@ function initDesktopCardHover() {
         if (content) content.classList.add('active');
 
         lastExpandedCard = this;
+
+        setTimeout(() => {
+          isAnimating = false;
+        }, 285);
       });
     });
 
     wrapper.addEventListener('mouseleave', function () {
+      if (isAnimating) return;
+
       cards.forEach((card) => {
         card.classList.remove('expanded');
         const content = card.querySelector('.preview-card-content-medium');

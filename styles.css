@@ -9,7 +9,6 @@
   --color-gradient-start: #0c47a0;
   --color-gradient-end: #8fecfc;
 
-  --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-md: 1.125rem;
 
@@ -48,11 +47,20 @@
 body {
   font-family: 'Roboto', 'Segoe UI', sans-serif;
   color: var(--color-text-primary);
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+input,
+textarea,
+button,
+a {
+  outline: none;
 }
 
 .container {
   width: 100%;
-  max-width: 1365px;
   margin: 0 auto;
   padding: 0 1.875rem;
 }
@@ -1601,10 +1609,9 @@ body.menu-open {
 }
 
 #header-icon {
-  display: inline-block;
   vertical-align: middle;
-  margin-left: 0.5rem;
-  padding-bottom: 0.375rem;
+  margin-left: -0.6rem;
+  padding-bottom: 0.6rem;
 }
 
 .narrow-cards-scroll-wrapper {
@@ -1714,7 +1721,7 @@ body.menu-open {
   }
 
   .category-links {
-    gap: 0.938rem;
+    gap: 0.98rem;
   }
 
   .service-card-body {
@@ -1736,12 +1743,21 @@ body.menu-open {
     gap: 4px;
   }
 
-  .hero-title-block p {
-    font-size: 2.125rem;
+  .show-more-button {
+    width: 170px;
   }
 
-  .hero-title-block p span {
-    font-size: 2.875rem;
+  .promo-button {
+    width: 170px;
+  }
+
+  .category-link,
+  .more-services-desktop {
+    font-size: 14px;
+  }
+
+  .hero-title-block p {
+    font-size: 2.125rem;
   }
 
   .hero-description {
@@ -1821,6 +1837,14 @@ body.menu-open {
     font-size: 1.25rem;
   }
 
+  .big-a-letter {
+    font-size: 2.94rem;
+  }
+
+  .cta-button {
+    width: 170px;
+  }
+
   .promo-title {
     font-size: 3rem;
   }
@@ -1843,8 +1867,10 @@ body.menu-open {
     padding: 0 1.25rem;
   }
 
-  .nav-link {
-    font-size: 0.813rem;
+  .nav-link,
+  .category-link,
+  .more-services-desktop {
+    font-size: 0.813rem !important;
   }
 
   .phone-number {
@@ -1868,7 +1894,11 @@ body.menu-open {
   }
 
   .category-links {
-    gap: 2.563rem;
+    gap: 3.1rem;
+  }
+
+  .geo-icon-small {
+    margin-bottom: -0.18rem;
   }
 
   .category-link {
@@ -1888,12 +1918,8 @@ body.menu-open {
     font-size: 1.75rem !important;
   }
 
-  .hero-title-block p span {
-    font-size: 2.25rem;
-  }
-
   .big-letter {
-    font-size: 2.938rem;
+    font-size: 2.38rem;
   }
 
   .big-a-letter {
@@ -2294,7 +2320,15 @@ body.menu-open {
   }
 
   .big-letter {
-    font-size: 2rem;
+    font-size: 2.42rem;
+  }
+
+  .geo-icon-small {
+    margin-bottom: 0;
+  }
+
+  .show-more-button {
+    font-size: 1rem;
   }
 
   .big-a-letter {
@@ -3027,8 +3061,8 @@ body.menu-open {
   }
 
   #header-icon {
-    padding-top: 0;
-    margin-left: -0.875rem;
+    padding-top: 0.2rem;
+    margin-left: -1.6rem;
   }
 
   .hero,
@@ -3296,16 +3330,12 @@ body.menu-open {
     font-size: 1.5rem !important;
   }
 
-  .hero-title-block p span {
-    font-size: 2rem;
-  }
-
   .big-letter {
     font-size: 2.125rem;
   }
 
   .big-a-letter {
-    font-size: 2rem !important;
+    font-size: 2.04rem !important;
   }
 
   .hero-title-line2 p {
@@ -3384,10 +3414,6 @@ body.menu-open {
     font-size: 1.5rem !important;
   }
 
-  .hero-title-block p span {
-    font-size: 2rem;
-  }
-
   .big-letter {
     font-size: 2.125rem;
   }
@@ -3409,6 +3435,11 @@ body.menu-open {
     display: inline;
     margin-left: 0;
   }
+
+  #header-icon {
+    padding-top: 0.24rem;
+    margin-left: -1.7rem;
+  }
 }
 
 @media (max-width: 516px) {
@@ -3418,6 +3449,10 @@ body.menu-open {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
   .info-text {
     font-size: var(--font-size-base);
   }
@@ -3428,12 +3463,6 @@ body.menu-open {
 
   .medium-card-text p:nth-child(2) {
     font-size: var(--font-size-sm);
-  }
-
-  .hero-title-block p svg {
-    padding-top: 0.5rem;
-    width: 60px;
-    height: 28px;
   }
 
   .services-description {
@@ -3518,7 +3547,7 @@ body.menu-open {
   }
 
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1.2rem;
   }
 
   .primary-nav-inner {
@@ -3574,15 +3603,11 @@ body.menu-open {
   }
 
   .hero-title-block p {
-    font-size: 1.375rem !important;
-  }
-
-  .hero-title-block p span {
-    font-size: 1.875rem;
+    font-size: 1.32rem !important;
   }
 
   .big-letter {
-    font-size: 2rem;
+    font-size: 1.82rem;
   }
 
   .big-a-letter {
@@ -3639,52 +3664,123 @@ body.menu-open {
   transition: opacity 0.15s ease 0s;
 }
 
-@media (min-width: 2180px) {
+.geo-icon-large {
+  display: none;
+}
+
+.geo-icon-small {
+  display: inline-block;
+}
+
+.card-icon-large {
+  display: none;
+}
+
+.card-icon-small {
+  display: inline-block;
+}
+
+.icon-small {
+  display: inline-block;
+}
+
+.icon-large {
+  display: none;
+}
+
+/* large screens */
+@media (min-width: 2340px) {
   .container {
-    max-width: 2100px;
+    max-width: 2560px;
   }
 
   .primary-nav {
     width: 100%;
-    max-width: 2020px;
+    max-width: 2320px;
     padding: 0.781rem 0 1.469rem 0;
     margin: 0 auto;
   }
 
   .secondary-nav {
     width: 100%;
-    max-width: 1980px;
+    max-width: 2262px;
     padding: 0 10px;
     margin: 0 auto;
   }
 
-  .secondary-nav-inner .category-links {
-    gap: 82px;
+  .secondary-nav-inner {
+    height: 46px;
+    border-radius: 22px;
   }
 
-  .main-navigation {
-    gap: 28px;
+  .geo-icon-small {
+    display: none;
   }
 
-  .nav-link {
-    font-size: var(--font-size-md);
+  .geo-icon-large {
+    display: inline-block;
   }
 
-  .phone-number {
-    font-size: var(--font-size-md);
+  .icon-small {
+    display: none;
   }
 
-  .phone-number svg {
-    margin-bottom: 4px;
+  .icon-large {
+    display: inline-block;
   }
 
-  .cta-button {
-    width: 194px;
-    font-size: var(--font-size-md);
+  .card-icon-small {
+    display: none;
+  }
+
+  .card-icon-large {
+    display: inline-block;
+  }
+
+  .hero-title-block {
+    max-width: 1400px !important;
+  }
+
+  .hero {
+    padding: 2.8rem 0 0 0;
+  }
+
+  .logo img {
+    width: 92px;
+    margin-left: 42px;
+    height: 44px;
   }
 
   .category-link {
-    font-size: var(--font-size-md);
+    font-size: 21.2px;
+  }
+
+  .main-navigation {
+    gap: 40px;
+    height: 46px;
+    border-radius: 22px;
+  }
+
+  .nav-link {
+    border-radius: 22px;
+    font-size: 21.2px;
+  }
+
+  .phone-number {
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .phone-number svg {
+    margin-bottom: -1px;
+    height: 28px;
+    width: 28px;
+  }
+
+  .cta-button {
+    width: 250px;
+    height: 46px;
+    border-radius: 20px;
   }
 
   .hero-title-block {
@@ -3708,7 +3804,45 @@ body.menu-open {
   }
 
   .hero-description {
-    width: 380px;
+    width: 700px;
+  }
+
+  .services-preview-grid {
+    min-height: 720px;
+  }
+
+  .preview-card-narrow {
+    width: 112px;
+    border-radius: 46px;
+  }
+
+  .narrow-number {
+    top: 600px;
+  }
+
+  .preview-card-large {
+    border-radius: 46px;
+  }
+
+  .tag {
+    height: 68px !important;
+    border-radius: 38px;
+    padding: 0 1rem;
+  }
+
+  .service-badge {
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .preview-card {
+    min-height: 700px;
+  }
+
+  .nav-link.active::before {
+    left: 21px;
+    width: 14px;
+    height: 14px;
   }
 
   .hero-description p {
@@ -3717,23 +3851,29 @@ body.menu-open {
 
   .tag {
     font-size: 1.5rem;
-    height: 40px;
+    height: 58px !important;
     border-radius: var(--radius-xl);
   }
 
   .dot-1 {
-    right: -93px;
-    top: 4px;
+    right: -5.44vw;
+    top: 13px;
+    height: 12px;
+    width: 12px;
   }
 
   .dot-2 {
-    right: -339.6px;
-    top: 4px;
+    right: -19.26vw;
+    top: 13px;
+    height: 12px;
+    width: 12px;
   }
 
   .dot-3 {
-    right: -335px;
-    top: 60px;
+    right: -18.5vw;
+    top: 93px;
+    height: 12px;
+    width: 12px;
   }
 
   .info-text {
@@ -3745,16 +3885,21 @@ body.menu-open {
   }
 
   .statistics-header {
-    width: 400px;
+    width: 580px;
   }
 
   .statistics-header p {
     font-size: 2.6rem;
   }
 
+  .service-card-number {
+    margin-top: -0.5rem;
+  }
+
   .show-more-button {
-    font-size: var(--font-size-md);
-    width: 190px;
+    width: 230px;
+    height: 46px;
+    border-radius: 20px;
   }
 
   .stat-label {
@@ -3778,11 +3923,16 @@ body.menu-open {
   }
 
   .advantages-text {
-    width: 550px;
+    width: 750px;
+  }
+
+  .advantages-cards {
+    gap: 2.2rem;
   }
 
   .advantage-card {
-    height: 850px;
+    height: 1210px;
+    border-radius: 60px;
   }
 
   .card-title {
@@ -3790,9 +3940,17 @@ body.menu-open {
   }
 
   .number-badge {
-    width: 120px;
-    height: 120px;
+    width: 162px;
+    height: 162px;
     border-radius: 50%;
+  }
+
+  .advantage-card-blue .card-hover-divider {
+    margin-bottom: 240px;
+  }
+
+  .advantage-card-dark .card-hover-divider {
+    margin-bottom: 240px;
   }
 
   .number-text {
@@ -3800,24 +3958,54 @@ body.menu-open {
   }
 
   .card-hover-text {
+    margin-top: 180px;
     font-size: 1.9rem;
   }
 
-  .services-title {
-    font-size: 4.8rem;
+  .card-info {
+    gap: 14px;
   }
 
-  .services-description {
-    font-size: 1.5rem;
-    margin-top: 0.9rem;
+  .card-number {
+    width: 76px;
+    height: 76px;
+  }
+
+  .vertical-text {
+    bottom: 240px;
+    font-size: 1.39vw;
+    max-height: 320px;
+  }
+
+  .card-number {
+    font-size: 1.26vw;
+  }
+
+  .large-icon {
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+  }
+
+  .medium-card-text {
+    margin-top: 1.4rem;
   }
 
   .preview-card-narrow.expanded {
-    width: 430px;
+    width: 500px;
   }
 
   .preview-card-content-medium {
-    max-width: 398px;
+    max-width: 450px;
+    min-height: 650px !important;
+    border-radius: 44px;
+    border-top: 3px solid rgba(255, 255, 255, 0.09);
+  }
+
+  .details-button {
+    width: 186px;
+    height: 58px;
+    border-radius: 26px;
   }
 
   .medium-card-text p:nth-child(1) {
@@ -3830,7 +4018,7 @@ body.menu-open {
 
   .advantage-card-gray::before {
     background-image: radial-gradient(
-      circle 440px at center center,
+      circle 620px at center center,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0) 30%,
       rgba(0, 0, 0, 0.7) 60%,
@@ -3847,22 +4035,8 @@ body.menu-open {
   }
 
   .service-card {
-    height: 650px;
-  }
-
-  .service-card-wrapper {
-    height: 590px;
-  }
-
-  .service-card-body {
-    gap: 7rem;
-  }
-
-  .service-badge {
-    font-size: 1.5rem;
-    height: 40px;
-    margin-top: 1rem;
-    border-radius: 22px;
+    height: 870px;
+    border-radius: 60px;
   }
 
   .desktop-title {
@@ -3870,14 +4044,9 @@ body.menu-open {
     line-height: 110%;
   }
 
-  .service-card-number {
-    font-size: 13rem;
-  }
-
   .footer-badge {
-    font-size: 1.5rem;
     height: 40px;
-    border-radius: 22px;
+    border-radius: 20px;
   }
 
   .icon-circle {
@@ -3895,58 +4064,1015 @@ body.menu-open {
     height: 36px;
   }
 
-  .hero-title-line2 svg {
-    margin-bottom: 4px;
-  }
-
   .promo-title {
     font-size: 3.5rem;
   }
 
+  .promo-content {
+    max-width: 900px;
+  }
+
+  .countdown-wrapper {
+    min-width: 950px;
+  }
+
+  .promo-wrapper {
+    border-radius: 60px;
+  }
+
+  .countdown-block {
+    height: 180px;
+    max-width: 196px;
+  }
+
+  .countdown-display {
+    height: 200px;
+  }
+
+  .countdown-timer {
+    height: 154px;
+    font-size: 165.6px;
+  }
+
   .countdown-label {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .countdown-labels {
-    font-size: 1.6rem;
-    gap: 7.72rem;
+    font-size: 1.3rem;
+    gap: 6.8rem;
+    margin-left: 0.2rem;
+    margin-top: -0.8rem;
+  }
+
+  .timer-separator {
+    margin-top: -0.8rem;
+  }
+
+  .countdown-block {
+    border-radius: 50px;
   }
 
   .promo-text {
     font-size: 1.6rem;
-    max-width: 550px;
+    max-width: 750px;
   }
 
   .promo-button {
-    font-size: var(--font-size-md);
-    width: 190px;
+    width: 240px;
+    height: 46px;
+    border-radius: 18px;
   }
 
   .promo-info-card {
     height: 320px;
     width: 440px;
-    top: 120px;
+    top: 230px;
   }
 
   .info-card-body svg {
     margin-top: -50px;
   }
 
-  .info-card-label {
-    font-size: 1.04rem;
-  }
-
-  .info-card-title {
-    font-size: 1.9rem;
-  }
-
   .info-card-description {
-    font-size: 1.04rem;
     line-height: 110%;
     max-width: 220px;
   }
 
   .stat-card-content {
     gap: 2rem;
+  }
+
+  .card-hover-divider-grey {
+    margin-top: 1.75rem;
+  }
+
+  .service-card-body {
+    gap: 6.7rem;
+  }
+
+  .services-description {
+    font-size: 1vw;
+  }
+
+  .service-card-wrapper {
+    height: 720px;
+  }
+
+  .title-text {
+    display: inline-block;
+    transform: translateX(-10px);
+  }
+
+  .service-card {
+    height: 870px;
+    border-radius: 60px;
+  }
+
+  .secondary-nav-inner {
+    height: 46px;
+    border-radius: 22px;
+  }
+
+  .nav-link.active {
+    padding-left: 2.2rem;
+  }
+
+  .secondary-nav-inner .category-links {
+    gap: 80px;
+  }
+
+  .main-navigation {
+    gap: 40px;
+    height: 46px;
+    border-radius: 22px;
+  }
+
+  .nav-link {
+    border-radius: 22px;
+    min-height: 48px;
+  }
+}
+
+@media (min-width: 1870px) and (max-width: 2340px) {
+  .primary-nav {
+    width: 100%;
+    max-width: 1800px;
+    padding: 0.781rem 0 1.469rem 0;
+    margin: 0 auto;
+  }
+
+  .secondary-nav {
+    width: 100%;
+    max-width: 1752px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  .hero-title-block {
+    max-width: 1400px !important;
+  }
+
+  .hero {
+    padding: 2.8rem 0 0 0;
+  }
+
+  .logo img {
+    width: 92px;
+    margin-left: 42px;
+    height: 44px;
+  }
+
+  .category-link {
+    font-size: 21.2px;
+  }
+
+  .promo-wrapper {
+    border-radius: 60px;
+  }
+
+  .phone-number {
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .phone-number svg {
+    margin-bottom: -1px;
+    height: 28px;
+    width: 28px;
+  }
+
+  .cta-button {
+    width: 230px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .hero-title-block {
+    max-width: 1000px;
+  }
+
+  .nav-link {
+    font-size: 21.2px;
+  }
+
+  .nav-link.active {
+    padding: 1rem 1rem;
+    border-radius: 20px;
+    padding-left: 2.5rem;
+  }
+
+  .hero-title-block p {
+    font-size: 3rem !important;
+  }
+
+  .hero-title-block p span {
+    font-size: 3rem;
+  }
+
+  .big-letter {
+    font-size: 4rem !important;
+  }
+
+  .big-a-letter {
+    font-size: 4.1rem !important;
+  }
+
+  .hero-description {
+    width: 700px;
+  }
+
+  .services-preview-grid {
+    min-height: 600px;
+  }
+
+  .preview-card-narrow {
+    width: 112px;
+    border-radius: 46px;
+  }
+
+  .narrow-number {
+    top: 500px;
+  }
+
+  .preview-card-large {
+    border-radius: 46px;
+  }
+
+  .tag {
+    height: 68px !important;
+    border-radius: 38px;
+    padding: 0 1rem;
+  }
+
+  .service-badge {
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .preview-card {
+    min-height: 600px;
+  }
+
+  .nav-link.active::before {
+    left: 21px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .hero-description p {
+    font-size: 1.5rem;
+  }
+
+  .tag {
+    font-size: 1.5rem;
+    height: 58px !important;
+    border-radius: var(--radius-xl);
+  }
+
+  .dot-1 {
+    right: -5.44vw;
+    top: 13px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .dot-2 {
+    right: -19.26vw;
+    top: 13px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .dot-3 {
+    right: -18.5vw;
+    top: 93px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .info-text {
+    font-size: 1.6rem;
+  }
+
+  .feature-item {
+    font-size: 1.3rem;
+  }
+
+  .statistics-header {
+    width: 580px;
+  }
+
+  .statistics-header p {
+    font-size: 2.6rem;
+  }
+
+  .service-card-number {
+    margin-top: -0.5rem;
+  }
+
+  .show-more-button {
+    width: 230px;
+    height: 46px;
+    border-radius: 20px;
+  }
+
+  .stat-label {
+    font-size: 1.5rem;
+  }
+
+  .stats-cards {
+    gap: 30px;
+  }
+
+  .section-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 4.8rem;
+  }
+
+  .advantage-point {
+    font-size: 1.5rem;
+  }
+
+  .advantages-text {
+    width: 750px;
+  }
+
+  .advantages-cards {
+    gap: 2.2rem;
+  }
+
+  .advantage-card {
+    height: 900px;
+    border-radius: 60px;
+  }
+
+  .card-title {
+    font-size: 3rem;
+  }
+
+  .number-badge {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+  }
+
+  .advantage-card-blue .card-hover-divider {
+    margin-bottom: 210px;
+  }
+
+  .advantage-card-dark .card-hover-divider {
+    margin-bottom: 210px;
+  }
+
+  .number-text {
+    font-size: 1.9rem;
+  }
+
+  .card-hover-text {
+    margin-top: 80px;
+    font-size: 1.6rem;
+  }
+
+  .card-info {
+    gap: 14px;
+  }
+
+  .card-number {
+    width: 76px;
+    height: 76px;
+    font-size: 1.26vw;
+  }
+
+  .vertical-text {
+    bottom: 210px;
+    font-size: 1.39vw;
+    max-height: 320px;
+  }
+
+  .large-icon {
+    width: 138px;
+    height: 138px;
+    border-radius: 50%;
+  }
+
+  .medium-card-text {
+    margin-top: 1.4rem;
+  }
+
+  .preview-card-narrow.expanded {
+    width: 450px;
+  }
+
+  .preview-card-content-medium {
+    max-width: 400px;
+    min-height: 550px !important;
+    border-radius: 44px;
+    border-top: 3px solid rgba(255, 255, 255, 0.09);
+  }
+
+  .details-button {
+    width: 186px;
+    height: 58px;
+    border-radius: 26px;
+  }
+
+  .medium-card-text p:nth-child(1) {
+    font-size: 1.9rem;
+  }
+
+  .medium-card-text p:nth-child(2) {
+    font-size: 1.4rem;
+  }
+
+  .advantage-card-gray::before {
+    background-image: radial-gradient(
+      circle 480px at center center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0.7) 60%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 45%,
+      transparent 50%,
+      transparent 100%
+    );
+  }
+
+  .service-card {
+    height: 770px;
+    border-radius: 60px;
+  }
+
+  .desktop-title {
+    font-size: 3.4rem;
+    line-height: 110%;
+  }
+
+  .footer-badge {
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .icon-circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .icon-circle svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  .rocket-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .promo-title {
+    font-size: 3.5rem;
+  }
+
+  .promo-content {
+    max-width: 900px;
+  }
+
+  .countdown-wrapper {
+    min-width: 850px;
+  }
+
+  .countdown-block {
+    height: 168px;
+    max-width: 184px;
+  }
+
+  .countdown-display {
+    height: 200px;
+  }
+
+  .countdown-timer {
+    height: 142px;
+    font-size: 148.4px;
+  }
+
+  .countdown-label {
+    font-size: 1.3rem;
+  }
+
+  .countdown-labels {
+    font-size: 1.3rem;
+    gap: 6.8rem;
+    margin-left: 0.2rem;
+    margin-top: -0.8rem;
+  }
+
+  .timer-separator {
+    margin-top: -0.8rem;
+  }
+
+  .countdown-block {
+    border-radius: 50px;
+  }
+
+  .promo-text {
+    font-size: 1.6rem;
+    max-width: 750px;
+  }
+
+  .promo-button {
+    width: 240px;
+    height: 46px;
+    border-radius: 18px;
+  }
+
+  .promo-info-card {
+    height: 320px;
+    width: 440px;
+    top: 230px;
+  }
+
+  .info-card-body svg {
+    margin-top: -50px;
+  }
+
+  .info-card-description {
+    line-height: 110%;
+    max-width: 220px;
+  }
+
+  .stat-card-content {
+    gap: 2rem;
+  }
+
+  .card-hover-divider-grey {
+    margin-top: 1.75rem;
+  }
+
+  .service-card-body {
+    gap: 6.7rem;
+  }
+
+  .services-description {
+    font-size: 1vw;
+  }
+
+  .service-card-wrapper {
+    height: 656px;
+  }
+
+  .title-text {
+    display: inline-block;
+    transform: translateX(-10px);
+  }
+
+  .geo-icon-large {
+    margin-bottom: -0.2rem;
+  }
+}
+
+@media (max-width: 2120px) {
+  .geo-icon-large {
+    margin-bottom: -0.3rem;
+  }
+
+  .dot-1 {
+    right: -5.6vw;
+    top: 13px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .dot-2 {
+    right: -19.5vw;
+    top: 13px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .dot-3 {
+    right: -18.7vw;
+    top: 89px;
+    height: 12px;
+    width: 12px;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1870px) {
+  .primary-nav {
+    max-width: 1500px;
+  }
+
+  .secondary-nav {
+    max-width: 1468px;
+  }
+
+  .category-links {
+    gap: 28px;
+  }
+
+  .cta-button {
+    width: 180px;
+  }
+
+  .desktop-title {
+    font-size: 2.8rem;
+    line-height: 106%;
+  }
+
+  .service-badge,
+  .footer-badge {
+    font-size: 14px;
+  }
+
+  .category-link,
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .dot-1 {
+    right: -4.3vw;
+    top: 1.8px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .dot-2 {
+    right: -13.76vw;
+    top: 1.8px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .dot-3 {
+    right: -13.04vw;
+    top: 47px;
+    height: 8px;
+    width: 8px;
+  }
+
+  .vertical-text {
+    max-height: 160px;
+  }
+
+  .show-more-button {
+    width: 172px;
+  }
+
+  .statistics-header {
+    width: 278px;
+  }
+
+  .advantage-card {
+    min-height: 750px;
+  }
+
+  .card-hover-text {
+    font-size: 1.4rem;
+  }
+
+  .card-title {
+    font-size: 2.6rem;
+  }
+
+  .card-hover-divider {
+    margin-bottom: 100px !important;
+  }
+
+  .number-badge {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+  }
+
+  .service-card-title {
+    flex-shrink: 0;
+  }
+
+  .service-card-number {
+    margin-top: auto;
+    position: relative;
+  }
+
+  .service-card-footer {
+    position: absolute;
+    bottom: 14px;
+    right: 0;
+  }
+
+  .service-card {
+    min-height: 550px;
+  }
+
+  .service-card-wrapper {
+    height: 470px;
+  }
+
+  .service-card-body {
+    gap: 4rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .countdown-timer {
+    font-size: 120.3px;
+  }
+
+  .promo-button {
+    width: 174px;
+  }
+
+  .advantage-card-gray::before {
+    background-image: radial-gradient(
+      circle 370px at center center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0.7) 60%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 45%,
+      transparent 50%,
+      transparent 100%
+    );
+  }
+
+  .countdown-label,
+  .countdown-unit {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1616px) {
+  .primary-nav {
+    max-width: 1240px;
+  }
+
+  .secondary-nav {
+    max-width: 1218px;
+  }
+
+  .nav-link.active {
+    padding-left: 2.5rem;
+  }
+
+  .category-link,
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .hero-description p,
+  .hero-description span {
+    font-size: 1.24rem;
+  }
+
+  .vertical-text {
+    font-size: 1.4rem;
+  }
+
+  .advantage-point {
+    font-size: 1.3rem;
+  }
+
+  .dot-1 {
+    right: -4.5vw;
+    top: 1.8px;
+  }
+
+  .dot-2 {
+    right: -14vw;
+    top: 1.8px;
+  }
+
+  .dot-3 {
+    right: -13.26vw;
+    top: 44px;
+  }
+
+  .geo-icon-small {
+    margin-bottom: -0.2rem;
+  }
+
+  .cta-button {
+    width: 150px;
+  }
+
+  .category-links {
+    gap: 15px;
+  }
+
+  .promo-info-card {
+    top: 120px;
+  }
+
+  .countdown-wrapper {
+    min-width: 300px;
+    max-width: 580px;
+  }
+
+  .countdown-block {
+    height: 112px;
+    max-width: 134px;
+    border-radius: 33px;
+  }
+
+  .countdown-display {
+    height: 140px;
+  }
+
+  .countdown-timer {
+    height: 88px;
+    font-size: 98.9px;
+  }
+
+  .countdown-label {
+    font-size: 1.3rem;
+  }
+
+  .countdown-labels {
+    font-size: 1.3rem;
+    gap: 6.8rem;
+    margin-left: 0.2rem;
+    margin-top: -0.8rem;
+  }
+
+  .timer-separator {
+    margin-top: -0.8rem;
+  }
+
+  .service-card-body {
+    gap: 7rem;
+  }
+
+  .promo-button {
+    width: 150px;
+  }
+
+  .medium-card-text p:nth-child(1) {
+    font-size: 24px;
+  }
+
+  .medium-card-text p:nth-child(2) {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 23px;
+  }
+
+  .services-description {
+    font-size: 26px;
+  }
+
+  .vertical-text {
+    bottom: 240px;
+    font-size: 36px;
+    max-height: 320px;
+  }
+
+  .category-link {
+    font-size: 21px;
+  }
+
+  .dot-1 {
+    right: -138.496px;
+    top: 13px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .dot-2 {
+    right: -508px;
+    top: 13px;
+    height: 12px;
+    width: 12px;
+  }
+
+  .dot-3 {
+    right: -489px;
+    top: 93px;
+    height: 12px;
+    width: 12px;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 2120px) {
+  html {
+    font-size: 0.8625vw;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  html {
+    font-size: 0.9vw;
+  }
+
+  .dot-1 {
+    right: -4.9vw;
+    top: 1.8px;
+  }
+
+  .dot-2 {
+    right: -14.9vw;
+    top: 1.8px;
+  }
+
+  .dot-3 {
+    right: -14.04vw;
+    top: 44px;
+  }
+
+  .card-title {
+    font-size: 37px;
+  }
+
+  .card-hover-divider {
+    margin-bottom: 130px !important;
+  }
+
+  .card-hover-text {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 1870px) and (max-width: 2560px) {
+  html {
+    font-size: 0.8625vw;
+  }
+
+  .service-card-wrapper {
+    width: calc(100% - 62px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+  }
+
+  .service-card-body {
+    gap: 6.7rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .geo-icon-small {
+    display: none;
+  }
+
+  .geo-icon-large {
+    display: inline-block;
+  }
+
+  .icon-small {
+    display: none;
+  }
+
+  .icon-large {
+    display: inline-block;
+  }
+
+  .card-icon-small {
+    display: none;
+  }
+
+  .card-icon-large {
+    display: inline-block;
+  }
+
+  .service-badge {
+    flex-shrink: 0;
+  }
+
+  .service-card-title {
+    flex-shrink: 0;
+  }
+
+  .service-card-number {
+    margin-top: auto;
+    position: relative;
+  }
+
+  .service-card-footer {
+    position: absolute;
+    bottom: 14px;
+    right: 0;
   }
 }

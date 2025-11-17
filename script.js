@@ -241,93 +241,196 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  let currentSlide = 0;
-  const images = document.querySelectorAll('.portfolio-image');
-  const circles = document.querySelectorAll('.status-circle');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let isTransitioning = false;
+  function initTestDriveSlider() {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const images = document.querySelectorAll('.portfolio-image');
+    const circles = document.querySelectorAll('.status-circle');
+    let currentSlide = 0;
+    let isTransitioning = false;
 
-  function showSlide(index, direction = 'next') {
-    if (isTransitioning || !images.length) return;
-    isTransitioning = true;
+    if (!images.length || !circles.length) return;
 
-    const currentImage = images[currentSlide];
-    const nextImage = images[index];
+    function showSlide(index, direction = 'next') {
+      if (isTransitioning || !images.length) return;
+      isTransitioning = true;
 
-    const slideOutClass =
-      direction === 'next' ? 'slide-out-left' : 'slide-out-right';
-    const slideInClass =
-      direction === 'next' ? 'slide-in-right' : 'slide-in-left';
+      const currentImage = images[currentSlide];
+      const nextImage = images[index];
 
-    currentImage.classList.remove('active');
-    currentImage.classList.add(slideOutClass);
+      const slideOutClass =
+        direction === 'next' ? 'slide-out-left' : 'slide-out-right';
+      const slideInClass =
+        direction === 'next' ? 'slide-in-right' : 'slide-in-left';
 
-    nextImage.classList.add(slideInClass);
+      currentImage.classList.remove('active');
+      currentImage.classList.add(slideOutClass);
 
-    setTimeout(() => {
-      nextImage.classList.add('active');
-      nextImage.classList.remove(slideInClass);
-
-      setTimeout(() => {
-        currentImage.classList.remove(slideOutClass);
-      }, 50);
-
-      circles.forEach((circle) => circle.classList.remove('active'));
-      circles[index].classList.add('active');
-
-      if (prevBtn) {
-        prevBtn.style.opacity = '1';
-        prevBtn.style.cursor = 'pointer';
-      }
-      if (nextBtn) {
-        nextBtn.style.opacity = '1';
-        nextBtn.style.cursor = 'pointer';
-      }
-
-      currentSlide = index;
+      nextImage.style.display = 'block';
+      nextImage.classList.add(slideInClass);
 
       setTimeout(() => {
-        isTransitioning = false;
-      }, 100);
-    }, 300);
+        nextImage.classList.add('active');
+        nextImage.classList.remove(slideInClass);
+
+        setTimeout(() => {
+          currentImage.style.display = 'none';
+          currentImage.classList.remove(slideOutClass);
+        }, 50);
+
+        circles.forEach((circle) => circle.classList.remove('active'));
+        circles[index].classList.add('active');
+
+        currentSlide = index;
+
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 100);
+      }, 300);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (isTransitioning) return;
+        let newIndex = currentSlide - 1;
+        if (newIndex < 0) {
+          newIndex = images.length - 1;
+        }
+        showSlide(newIndex, 'prev');
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (isTransitioning) return;
+        let newIndex = currentSlide + 1;
+        if (newIndex >= images.length) {
+          newIndex = 0;
+        }
+        showSlide(newIndex, 'next');
+      });
+    }
+
+    circles.forEach((circle, index) => {
+      circle.addEventListener('click', () => {
+        if (isTransitioning || currentSlide === index) return;
+        const direction = index > currentSlide ? 'next' : 'prev';
+        showSlide(index, direction);
+      });
+    });
+
+    if (images.length > 0) {
+      images.forEach((img) => (img.style.display = 'none'));
+      images[0].style.display = 'block';
+      images[0].classList.add('active');
+      circles[0].classList.add('active');
+    }
   }
 
-  prevBtn?.addEventListener('click', () => {
-    if (isTransitioning) return;
+  function initShowcaseSlider() {
+    const prevBtn = document.getElementById('showcasePrevBtn');
+    const nextBtn = document.getElementById('showcaseNextBtn');
+    const images = document.querySelectorAll('.showcase-image');
+    const dots = document.querySelectorAll(
+      '#showcaseIndicators .indicator-dot'
+    );
+    let currentSlide = 0;
+    let isTransitioning = false;
 
-    let newIndex = currentSlide - 1;
-    if (newIndex < 0) {
-      newIndex = images.length - 1;
+    if (!images.length || !dots.length) return;
+
+    function showSlide(index, direction = 'next') {
+      if (isTransitioning || !images.length) return;
+      isTransitioning = true;
+
+      const currentImage = images[currentSlide];
+      const nextImage = images[index];
+
+      const slideOutClass =
+        direction === 'next' ? 'slide-out-left' : 'slide-out-right';
+      const slideInClass =
+        direction === 'next' ? 'slide-in-right' : 'slide-in-left';
+
+      currentImage.classList.remove('active');
+      currentImage.classList.add(slideOutClass);
+
+      nextImage.style.display = 'block';
+      nextImage.classList.add(slideInClass);
+
+      setTimeout(() => {
+        nextImage.classList.add('active');
+        nextImage.classList.remove(slideInClass);
+
+        setTimeout(() => {
+          currentImage.style.display = 'none';
+          currentImage.classList.remove(slideOutClass);
+        }, 50);
+
+        dots.forEach((dot) => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+
+        currentSlide = index;
+
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 100);
+      }, 300);
     }
-    showSlide(newIndex, 'prev');
-  });
 
-  nextBtn?.addEventListener('click', () => {
-    if (isTransitioning) return;
-
-    let newIndex = currentSlide + 1;
-    if (newIndex >= images.length) {
-      newIndex = 0;
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (isTransitioning) return;
+        let newIndex = currentSlide - 1;
+        if (newIndex < 0) {
+          newIndex = images.length - 1;
+        }
+        showSlide(newIndex, 'prev');
+      });
     }
-    showSlide(newIndex, 'next');
-  });
 
-  circles.forEach((circle, index) => {
-    circle.addEventListener('click', () => {
-      if (isTransitioning || currentSlide === index) return;
-      const direction = index > currentSlide ? 'next' : 'prev';
-      showSlide(index, direction);
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (isTransitioning) return;
+        let newIndex = currentSlide + 1;
+        if (newIndex >= images.length) {
+          newIndex = 0;
+        }
+        showSlide(newIndex, 'next');
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        if (isTransitioning || currentSlide === index) return;
+        const direction = index > currentSlide ? 'next' : 'prev';
+        showSlide(index, direction);
+      });
     });
-  });
+
+    if (images.length > 0) {
+      images.forEach((img) => (img.style.display = 'none'));
+      images[0].style.display = 'block';
+      images[0].classList.add('active');
+      dots[0].classList.add('active');
+    }
+  }
 
   const zoomBtn = document.getElementById('zoomBtn');
+  const showcaseZoomBtn = document.getElementById('showcaseZoomBtn');
   const modal = document.getElementById('imageModal');
   const modalImage = document.getElementById('modalImage');
   const closeModal = document.getElementById('closeModal');
 
   zoomBtn?.addEventListener('click', () => {
     const activeImage = document.querySelector('.portfolio-image.active');
+    if (activeImage && modalImage) {
+      modalImage.src = activeImage.src;
+      modal?.classList.add('active');
+    }
+  });
+
+  showcaseZoomBtn?.addEventListener('click', () => {
+    const activeImage = document.querySelector('.showcase-image.active');
     if (activeImage && modalImage) {
       modalImage.src = activeImage.src;
       modal?.classList.add('active');
@@ -343,10 +446,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.remove('active');
     }
   });
-
-  if (images.length > 0) {
-    showSlide(0);
-  }
 
   const nicheItems = document.querySelectorAll('.niche-item');
   const nicheContents = document.querySelectorAll('.niche-content');
@@ -406,6 +505,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  initTestDriveSlider();
+  initShowcaseSlider();
   initMobileCards();
   initBurgerMenu();
 

@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const images = document.querySelectorAll('.portfolio-image');
-    const circles = document.querySelectorAll('.status-circle');
+    const circles = document.querySelectorAll('.control-slider .status-circle');
     let currentSlide = 0;
     let isTransitioning = false;
 
@@ -515,4 +515,73 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(initMobileCards, 250);
   });
+
+  function initTeamSlider() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.team-members-row');
+    const circles = document.querySelectorAll(
+      '.team-slider-controls .status-circle'
+    );
+
+    if (!slides.length || !circles.length) return;
+
+    function updateSlider() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active-slide');
+        } else {
+          slide.classList.remove('active-slide');
+        }
+      });
+
+      circles.forEach((circle, index) => {
+        if (index === currentSlide) {
+          circle.classList.add('active');
+        } else {
+          circle.classList.remove('active');
+        }
+      });
+    }
+
+    window.changeSlide = function (direction) {
+      currentSlide += direction;
+
+      if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+      } else if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+
+      updateSlider();
+    };
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const teamSection = document.querySelector('.team-section-wrapper');
+
+    if (teamSection) {
+      teamSection.addEventListener('touchstart', function (e) {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      teamSection.addEventListener('touchend', function (e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+    }
+
+    function handleSwipe() {
+      if (touchEndX < touchStartX - 50) {
+        changeSlide(1);
+      }
+      if (touchEndX > touchStartX + 50) {
+        changeSlide(-1);
+      }
+    }
+
+    updateSlider();
+  }
+
+  initTeamSlider();
 });

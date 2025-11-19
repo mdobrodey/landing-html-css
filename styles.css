@@ -1710,14 +1710,6 @@ body.menu-open {
   display: inline-block;
 }
 
-.icon-small {
-  display: inline-block;
-}
-
-.icon-large {
-  display: none;
-}
-
 /* why us section */
 .why-us-section {
   margin-bottom: 60px;
@@ -15124,7 +15116,7 @@ body.menu-open {
   }
 }
 
-@media (min-width: 1280px) and (max-width: 1439px) {
+@media (min-width: 1280px) and (max-width: 1440px) {
   html {
     font-size: 0.9vw;
   }

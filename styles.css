@@ -11,6 +11,7 @@
 
   --font-size-base: 1rem;
   --font-size-md: 1.125rem;
+  --font-size-sm: 0.875rem;
 
   --radius-sm: 14px;
   --radius-md: 16px;
@@ -196,7 +197,7 @@ a {
 .phone-number {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   padding: 0.375rem 0.625rem;
   gap: 0.375rem;
   height: 36px;
@@ -761,13 +762,6 @@ a {
   flex: 1;
 }
 
-.section-subtitle {
-  font-weight: 600;
-  font-size: var(--font-size-md);
-  line-height: 100%;
-  letter-spacing: 0.16em;
-}
-
 .section-title {
   font-family: 'Segoe UI', sans-serif;
   font-weight: 600;
@@ -1070,7 +1064,7 @@ a {
 .services-title {
   font-family: 'Segoe UI', sans-serif;
   font-weight: 600;
-  font-size: 4.625rem;
+  font-size: 5.5rem;
   line-height: 100%;
   color: var(--color-text-primary);
 }
@@ -1207,7 +1201,7 @@ a {
 /* promo section */
 .promo {
   position: relative;
-  padding: 2.5rem 0 3.5rem 0;
+  padding: 2.5rem 0 5.5rem 0;
 }
 
 .promo-wrapper {
@@ -1712,7 +1706,7 @@ body.menu-open {
 
 /* why us section */
 .why-us-section {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   overflow: hidden;
 }
 
@@ -1876,8 +1870,8 @@ body.menu-open {
   }
 
   .why-us-section-subtitle {
-    font-size: 1rem;
-    max-width: 320px;
+    font-size: 1.1rem;
+    max-width: 330px;
     margin-left: 40%;
   }
 
@@ -1893,12 +1887,12 @@ body.menu-open {
   }
 
   .advantage-title {
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 14px;
   }
 
   .advantage-text {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .card-advantage:nth-child(1),
@@ -1970,7 +1964,7 @@ body.menu-open {
   }
 
   .why-us-section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     max-width: 100%;
     margin-bottom: 18px;
   }
@@ -2003,15 +1997,75 @@ body.menu-open {
   }
 
   .advantage-title {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 10px;
     line-height: 110%;
   }
 
   .advantage-text {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 110%;
   }
+}
+
+.advantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity var(--transition-fast) ease;
+}
+
+.advantage-card-dark::before {
+  box-shadow: inset -70px 0 50px rgba(0, 0, 0, 0.25),
+    inset 70px 0 50px rgba(0, 0, 0, 0.25),
+    inset 0 -140px 50px rgba(0, 0, 0, 0.55);
+  opacity: 1;
+}
+
+.advantage-card-blue::before {
+  box-shadow: inset -70px 0 50px rgba(0, 0, 0, 0.25),
+    inset 70px 0 50px rgba(0, 0, 0, 0.25),
+    inset 0 -140px 50px rgba(0, 0, 0, 0.55);
+  opacity: 1;
+}
+
+.advantage-card-dark:hover::before,
+.advantage-card-blue:hover::before {
+  opacity: 0;
+}
+
+.card-hover-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.563rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1),
+    transform var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantage-card:hover .card-hover-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-hover-divider {
+  width: 100%;
+  height: 0;
+  border: 1px solid var(--color-text-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1),
+    opacity var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advantage-card:hover .card-hover-divider {
+  transform: scaleX(1);
 }
 
 @media (max-width: 480px) {
@@ -2024,8 +2078,8 @@ body.menu-open {
   }
 
   .why-us-section-title {
-    font-size: 2rem;
-    max-width: 100%;
+    font-size: 2.2rem;
+    max-width: 90%;
     margin-bottom: 16px;
     line-height: 110%;
   }
@@ -2044,8 +2098,9 @@ body.menu-open {
   }
 
   .card-advantage {
-    height: 240px;
-    max-width: 280px;
+    height: 320px;
+    width: 270px;
+    min-width: 270px;
     padding: 16px 12px;
     border-radius: 20px;
   }
@@ -2057,27 +2112,39 @@ body.menu-open {
 
   .advantage-content {
     width: 100%;
+    padding: 12px 18px;
   }
 
   .advantage-title {
-    font-size: 15px;
+    font-size: 19px;
+    max-width: 200px;
     margin-bottom: 8px;
     line-height: 110%;
   }
 
+  .card-advantage:nth-child(1) .advantage-title,
+  .card-advantage:nth-child(2) .advantage-title {
+    max-width: 140px;
+  }
+
+  .card-advantage:nth-child(3) .advantage-title {
+    max-width: 200px;
+  }
+
   .advantage-text {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 115%;
+    max-width: 180px;
   }
 }
 
 @media (min-width: 1280px) and (max-width: 1440px) {
   .why-us-section-title {
-    font-size: 4rem;
+    font-size: 6rem;
   }
 
   .why-us-section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .card-advantage {
@@ -2086,17 +2153,17 @@ body.menu-open {
   }
 
   .advantage-title {
-    font-size: 1.4vw;
+    font-size: 1.6vw;
   }
 
   .advantage-text {
-    font-size: 1.15vw;
+    font-size: 1.22vw;
   }
 }
 
 @media (min-width: 1440px) and (max-width: 2120px) {
   .why-us-section-title {
-    font-size: 5.14vw;
+    font-size: 6rem;
   }
 
   .why-us-section-subtitle {
@@ -2202,7 +2269,7 @@ body.menu-open {
 .test-drive-section-title {
   font-family: 'Segoe UI', sans-serif;
   font-weight: 600;
-  font-size: 74px;
+  font-size: 6rem;
   line-height: 100%;
   color: #393939;
   margin-bottom: 40px;
@@ -2474,7 +2541,7 @@ body.menu-open {
 
   .contact-form {
     padding: 28px 40px;
-    height: 300px;
+    height: 314px;
   }
 
   .form-title {
@@ -2579,7 +2646,7 @@ body.menu-open {
 
 @media (min-width: 480px) and (max-width: 720px) {
   .test-drive-section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 24px;
   }
 
@@ -2600,17 +2667,17 @@ body.menu-open {
   }
 
   .offer-label {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 16px;
   }
 
   .offer-title {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 14px;
   }
 
   .offer-brand {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .contact-form {
@@ -2620,12 +2687,12 @@ body.menu-open {
   }
 
   .form-label {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 14px;
   }
 
   .form-title {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 14px;
   }
 
@@ -2645,7 +2712,7 @@ body.menu-open {
   }
 
   .button-text {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .right-column {
@@ -2690,7 +2757,7 @@ body.menu-open {
 
 @media (max-width: 480px) {
   .test-drive-section-title {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
     line-height: 110%;
   }
@@ -2712,18 +2779,18 @@ body.menu-open {
   }
 
   .offer-label {
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 14px;
   }
 
   .offer-title {
-    font-size: 24px;
+    font-size: 27px;
     margin-bottom: 12px;
     line-height: 110%;
   }
 
   .offer-brand {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .contact-form {
@@ -2733,12 +2800,12 @@ body.menu-open {
   }
 
   .form-label {
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 12px;
   }
 
   .form-title {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 12px;
     line-height: 110%;
   }
@@ -2761,7 +2828,7 @@ body.menu-open {
   }
 
   .button-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .button-submit svg {
@@ -2818,7 +2885,7 @@ body.menu-open {
 
 @media (max-width: 370px) {
   .test-drive-section-title {
-    font-size: 1.5rem;
+    font-size: 2.2rem;
   }
 
   .offer-card {
@@ -2827,7 +2894,7 @@ body.menu-open {
   }
 
   .offer-title {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .contact-form {
@@ -2835,11 +2902,11 @@ body.menu-open {
   }
 
   .form-title {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .button-text {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .portfolio-container {
@@ -2858,8 +2925,16 @@ body.menu-open {
 
 @media (min-width: 1870px) and (max-width: 2340px) {
   .test-drive-section-title {
-    font-size: 5rem;
+    font-size: 5.5rem;
     margin-bottom: 50px;
+  }
+
+  .niches-main-title {
+    font-size: 5.5rem !important;
+  }
+
+  .process-header-wrapper .main-title-h1 {
+    font-size: 5.5rem !important;
   }
 
   .test-drive-columns {
@@ -3464,7 +3539,7 @@ body.menu-open {
 
 @media (min-width: 1280px) and (max-width: 1870px) {
   .niches-main-title {
-    font-size: 4rem;
+    font-size: 6rem;
   }
 
   .niches-badge {
@@ -3526,7 +3601,7 @@ body.menu-open {
   }
 
   .niches-main-title {
-    font-size: 3.5rem;
+    font-size: 3.5rem !important;
   }
 
   .niches-badge {
@@ -3557,7 +3632,7 @@ body.menu-open {
 
   .niche-description {
     font-size: 1rem;
-    max-width: 360px;
+    max-width: 380px;
   }
 
   .niche-image-container {
@@ -3578,7 +3653,7 @@ body.menu-open {
   }
 }
 
-@media (min-width: 720px) and (max-width: 1120px) {
+@media (min-width: 720px) and (max-width: 1080px) {
   .competitive-niches-section {
     padding: 40px 0;
   }
@@ -3615,6 +3690,11 @@ body.menu-open {
     align-items: flex-start;
     min-width: auto;
     width: 100%;
+    margin-top: 10px;
+  }
+
+  .main-title-h1 {
+    font-size: 40px !important;
   }
 
   .niches-items {
@@ -3636,7 +3716,7 @@ body.menu-open {
   }
 
   .niche-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .niche-image-container {
@@ -3669,7 +3749,7 @@ body.menu-open {
   }
 
   .niches-main-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .niches-content {
@@ -3686,7 +3766,7 @@ body.menu-open {
   }
 
   .niches-badge {
-    font-size: 1rem;
+    font-size: 1.1rem;
     max-width: 100%;
   }
 
@@ -3703,11 +3783,11 @@ body.menu-open {
   }
 
   .niche-item {
-    font-size: 0.875rem;
+    font-size: 0.98rem;
   }
 
   .niche-item.active {
-    font-size: 1.75rem;
+    font-size: 1.9rem;
   }
 
   .niches-right {
@@ -3716,7 +3796,7 @@ body.menu-open {
   }
 
   .niche-description {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .niche-image-container {
@@ -3752,7 +3832,7 @@ body.menu-open {
   }
 
   .niches-main-title {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     line-height: 110%;
   }
 
@@ -3769,6 +3849,7 @@ body.menu-open {
     font-size: 1rem;
     max-width: 100%;
     line-height: 120%;
+    margin-bottom: 4px;
   }
 
   .niches-list {
@@ -3798,7 +3879,7 @@ body.menu-open {
   }
 
   .niche-description {
-    font-size: 1rem;
+    font-size: 0.9rem;
     max-width: 100%;
     line-height: 120%;
   }
@@ -4214,6 +4295,12 @@ body.menu-open {
   margin-bottom: 6px;
 }
 
+@media (min-width: 980px) {
+  .main-title-h1 {
+    font-size: 3.5rem !important;
+  }
+}
+
 @media (max-width: 768px) {
   .business-improvement-frame {
     position: relative;
@@ -4250,7 +4337,7 @@ body.menu-open {
   .main-title-h1 {
     width: 100%;
     height: auto;
-    font-size: clamp(32px, 8vw, 48px);
+    font-size: clamp(2.08rem, 2.08rem, 48px);
     line-height: 110%;
   }
 
@@ -4285,7 +4372,7 @@ body.menu-open {
   .description-text-large {
     width: 100%;
     height: auto;
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(13.3px, 4.1vw, 22px);
     line-height: 130%;
     order: 1;
   }
@@ -4350,7 +4437,7 @@ body.menu-open {
   .step-title-h5 {
     width: auto;
     flex: 1;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 120%;
   }
 
@@ -4392,7 +4479,7 @@ body.menu-open {
   .step-description-text {
     width: 100%;
     height: auto;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 140%;
   }
 
@@ -4554,19 +4641,6 @@ body.menu-open {
     line-height: 120%;
   }
 
-  .step-title-h5.title-01,
-  .step-title-h5.title-02,
-  .step-title-h5.title-03,
-  .step-title-h5.title-04 {
-    height: auto;
-  }
-
-  .step-content-wrapper {
-    width: 100%;
-    height: auto;
-    gap: 20px;
-  }
-
   .step-content-wrapper.content-01,
   .step-content-wrapper.content-02,
   .step-content-wrapper.content-03,
@@ -4634,12 +4708,6 @@ body.menu-open {
     height: 128px;
   }
 
-  .step-badge-indicator {
-    width: 110px;
-    height: 55px;
-    gap: 46px;
-  }
-
   .step-badge-indicator svg {
     width: 26px;
     height: 55px;
@@ -4693,11 +4761,6 @@ body.menu-open {
   .badge-number-text {
     width: 31px;
     height: 27px;
-    font-size: 27px;
-  }
-
-  .step-title-h5 {
-    width: 211px;
     font-size: 27px;
   }
 
@@ -4784,12 +4847,11 @@ body.menu-open {
     gap: 30.14vw;
     width: 91.11vw;
     height: 6.67vw;
+    justify-content: flex-end;
   }
 
   .step-badge-indicator {
-    width: 5.69vw;
-    height: 2.85vw;
-    gap: 2.36vw;
+    display: none;
   }
 
   .description-text-large {
@@ -5512,7 +5574,7 @@ body.menu-open {
   }
 
   .showcase-subtitle {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   .header-actions {
@@ -5543,7 +5605,7 @@ body.menu-open {
   }
 
   .case-details-text {
-    max-width: 323px;
+    max-width: 340px;
     gap: 24px;
   }
 
@@ -5552,11 +5614,11 @@ body.menu-open {
   }
 
   .case-heading {
-    font-size: 17px;
+    font-size: 18.5px;
   }
 
   .description-paragraph {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 110%;
   }
 
@@ -5602,11 +5664,11 @@ body.menu-open {
   }
 
   .showcase-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .showcase-subtitle {
-    font-size: 0.813rem;
+    font-size: 0.9rem;
     line-height: 110%;
   }
 
@@ -5624,7 +5686,7 @@ body.menu-open {
 
   .btn-primary span,
   .btn-secondary span {
-    font-size: 13px;
+    font-size: 14.5px;
   }
 
   .case-presentation-card {
@@ -5651,7 +5713,7 @@ body.menu-open {
   }
 
   .case-details-text {
-    max-width: 300px;
+    max-width: 320px;
     gap: 20px;
   }
 
@@ -5660,12 +5722,12 @@ body.menu-open {
   }
 
   .case-heading {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 110%;
   }
 
   .description-paragraph {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 110%;
   }
 
@@ -5711,13 +5773,17 @@ body.menu-open {
   }
 
   .showcase-title {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     line-height: 110%;
   }
 
   .showcase-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     line-height: 120%;
+  }
+
+  .portfolio-visual {
+    max-height: 163px;
   }
 
   .header-actions {
@@ -5726,7 +5792,7 @@ body.menu-open {
 
   .btn-primary span,
   .btn-secondary span {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .btn-primary svg {
@@ -5818,31 +5884,36 @@ body.menu-open {
   }
 
   .header-content {
-    width: 23.7vw;
+    width: 28vw;
     gap: 1.146vw;
   }
 
   .showcase-title {
-    font-size: 3.854vw;
+    font-size: 6rem;
   }
 
   .showcase-subtitle {
-    font-size: 1.05vw;
+    font-size: 1.3vw;
   }
 
   .header-actions {
     gap: 0.469vw;
   }
 
+  .numbers,
+  .cta-button {
+    font-size: 14px;
+  }
+
   .btn-primary {
-    height: 1.771vw;
-    padding: 0.313vw 0.521vw;
-    border-radius: 0.833vw;
+    height: 2.1vw;
+    padding: 1.2vw 0.8vw;
+    border-radius: 1.4vw;
     gap: 0.208vw;
   }
 
   .btn-primary span {
-    font-size: 0.729vw;
+    font-size: 1.2vw;
   }
 
   .btn-primary svg {
@@ -5851,13 +5922,13 @@ body.menu-open {
   }
 
   .btn-secondary {
-    height: 1.719vw;
-    padding: 0.313vw 0.521vw;
-    border-radius: 0.833vw;
+    height: 2.1vw;
+    padding: 1.2vw 0.8vw;
+    border-radius: 1.4vw;
   }
 
   .btn-secondary span {
-    font-size: 0.729vw;
+    font-size: 1.2vw;
   }
 
   .case-presentation-card {
@@ -5886,11 +5957,12 @@ body.menu-open {
   }
 
   .case-heading {
-    font-size: 1.042vw;
+    font-size: 1.4vw;
   }
 
   .description-paragraph {
-    font-size: 0.938vw;
+    font-size: 1.1vw;
+    max-width: 86%;
   }
 
   .case-description {
@@ -5922,6 +5994,12 @@ body.menu-open {
   }
 }
 
+@media (max-width: 1400px) and (min-width: 1280px) {
+  .niches-list {
+    min-width: 280px;
+  }
+}
+
 @media (min-width: 1870px) and (max-width: 2340px) {
   .case-studies-showcase {
     padding: 0 0 3.125vw 0;
@@ -5938,11 +6016,11 @@ body.menu-open {
   }
 
   .showcase-title {
-    font-size: 3.854vw;
+    font-size: 5.5rem;
   }
 
   .showcase-subtitle {
-    font-size: 1.05vw;
+    font-size: 1.3vw;
   }
 
   .header-actions {
@@ -5950,14 +6028,14 @@ body.menu-open {
   }
 
   .btn-primary {
-    height: 1.771vw;
-    padding: 0.313vw 0.521vw;
-    border-radius: 0.833vw;
+    height: 2.1vw;
+    padding: 1.2vw 0.8vw;
+    border-radius: 1.4vw;
     gap: 0.208vw;
   }
 
   .btn-primary span {
-    font-size: 0.729vw;
+    font-size: 1.2vw;
   }
 
   .btn-primary svg {
@@ -5966,13 +6044,13 @@ body.menu-open {
   }
 
   .btn-secondary {
-    height: 1.719vw;
-    padding: 0.313vw 0.521vw;
-    border-radius: 0.833vw;
+    height: 2.1vw;
+    padding: 1.2vw 0.8vw;
+    border-radius: 1.4vw;
   }
 
   .btn-secondary span {
-    font-size: 0.729vw;
+    font-size: 1.2vw;
   }
 
   .case-presentation-card {
@@ -6001,11 +6079,11 @@ body.menu-open {
   }
 
   .case-heading {
-    font-size: 1.042vw;
+    font-size: 1.4vw;
   }
 
   .description-paragraph {
-    font-size: 0.938vw;
+    font-size: 1.3vw;
   }
 
   .case-description {
@@ -6429,7 +6507,7 @@ body.menu-open {
   }
 
   .form-main-title {
-    font-size: 42px;
+    font-size: 44px;
   }
 
   .form-description-text {
@@ -6482,18 +6560,18 @@ body.menu-open {
   }
 
   .form-header-section {
-    width: 300px;
+    width: 310px;
     left: 50px;
     top: 120px;
     gap: 18px;
   }
 
   .form-main-title {
-    font-size: 36px;
+    font-size: 38px;
   }
 
   .form-description-text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 110%;
   }
 
@@ -6560,7 +6638,7 @@ body.menu-open {
   }
 
   .field-label {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .text-input {
@@ -6664,12 +6742,12 @@ body.menu-open {
   }
 
   .form-main-title {
-    font-size: 32px;
+    font-size: 34px;
     line-height: 110%;
   }
 
   .form-description-text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 120%;
   }
 
@@ -6697,7 +6775,7 @@ body.menu-open {
   }
 
   .field-label {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .text-input {
@@ -6757,7 +6835,7 @@ body.menu-open {
   }
 
   .form-main-title {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 110%;
   }
 
@@ -6819,7 +6897,7 @@ body.menu-open {
     top: 0;
     margin: 0 auto;
     padding: 0 20px;
-    gap: 14px;
+    gap: 16px;
   }
 
   .contact-inputs-group {
@@ -6879,11 +6957,11 @@ body.menu-open {
   }
 
   .form-main-title {
-    font-size: 3.33vw;
+    font-size: 3.6vw;
   }
 
   .form-description-text {
-    font-size: 1.25vw;
+    font-size: 1.3vw;
   }
 
   .form-fields-section {
@@ -6931,6 +7009,10 @@ body.menu-open {
   .submit-btn-icon {
     width: 2.08vw;
     height: 2.08vw;
+  }
+
+  .tag {
+    font-size: 14px;
   }
 }
 
@@ -7634,7 +7716,7 @@ body.menu-open {
   .heading-subtitle {
     width: 100%;
     height: auto;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .heading-title {
@@ -7752,7 +7834,7 @@ body.menu-open {
   .author-project {
     width: 100%;
     height: auto;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 110%;
   }
 
@@ -7811,13 +7893,13 @@ body.menu-open {
   .heading-subtitle {
     width: 100%;
     height: auto;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .heading-title {
     width: 100%;
     height: auto;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .slider-controls {
@@ -7929,7 +8011,7 @@ body.menu-open {
   .author-project {
     width: 100%;
     height: auto;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 115%;
   }
 
@@ -7983,14 +8065,18 @@ body.menu-open {
   .heading-subtitle {
     width: 100%;
     height: auto;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .heading-title {
     width: 100%;
     height: auto;
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     line-height: 110%;
+  }
+
+  .company-badge svg {
+    width: 50px;
   }
 
   .slider-controls {
@@ -8031,13 +8117,13 @@ body.menu-open {
   }
 
   .avatar-image {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
   }
 
   .company-badge {
     min-width: 80px;
-    height: 46px;
+    height: 44px;
     padding: 6px 9px;
     border-radius: 35px;
   }
@@ -8129,9 +8215,9 @@ body.menu-open {
   }
 }
 
-@media (min-width: 1281px) and (max-width: 1870px) {
+@media (min-width: 1280px) and (max-width: 1870px) {
   .testimonials-section {
-    padding: 3.47vw 0;
+    padding: 4vw 0;
   }
 
   .testimonials-frame {
@@ -8161,7 +8247,7 @@ body.menu-open {
   .heading-title {
     width: 100%;
     height: 5.11vw;
-    font-size: 5.11vw;
+    font-size: 5.4vw;
   }
 
   .slider-controls {
@@ -8236,7 +8322,7 @@ body.menu-open {
 
   .quote-text {
     width: 100%;
-    font-size: 2.49vw;
+    font-size: 2.8vw;
   }
 
   .author-divider {
@@ -8828,7 +8914,6 @@ body.menu-open {
   flex-direction: row;
   align-items: center;
   gap: 27px;
-  width: calc(100% + 3.75rem);
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
@@ -9137,14 +9222,14 @@ body.menu-open {
   }
 
   .portfolio-description-text {
-    font-size: 0.938rem;
+    font-size: 1rem;
     width: 100%;
     max-width: 400px;
   }
 
   .portfolio-action-buttons-wrapper {
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     gap: 8px;
   }
 
@@ -9153,8 +9238,16 @@ body.menu-open {
     height: 32px;
   }
 
+  .portfolio-btn-primary-text {
+    font-size: 15px;
+  }
+
+  .portfolio-btn-secondary-text {
+    font-size: 15px;
+  }
+
   .portfolio-btn-secondary {
-    width: 160px;
+    width: 170px;
     height: 31px;
   }
 
@@ -9215,8 +9308,8 @@ body.menu-open {
   }
 
   .portfolio-slider-nav {
-    left: 246px;
-    top: 200px;
+    left: 315px;
+    top: 190px;
   }
 }
 
@@ -9229,12 +9322,12 @@ body.menu-open {
   }
 
   .portfolio-main-heading {
-    font-size: 2rem;
+    font-size: 2.2rem;
     width: 100%;
   }
 
   .portfolio-description-text {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     max-width: 285px;
     line-height: 110%;
   }
@@ -9246,14 +9339,14 @@ body.menu-open {
   }
 
   .portfolio-btn-primary {
-    width: 140px;
+    width: 150px;
     height: 30px;
     padding: 5px 8px;
     border-radius: 14px;
   }
 
   .portfolio-btn-primary-text {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .portfolio-btn-arrow-icon {
@@ -9261,22 +9354,29 @@ body.menu-open {
     height: 18px;
   }
 
+  .portfolio-card-arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 60%;
+  }
+
   .portfolio-btn-secondary {
-    width: 150px;
+    width: 160px;
     height: 29px;
     padding: 5px 3px;
     border-radius: 14px;
   }
 
   .portfolio-btn-secondary-text {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .portfolio-card-item {
     width: 280px;
     height: 420px;
     padding: 24px;
-    border-radius: 20px;
   }
 
   .portfolio-card-header-badge {
@@ -9343,13 +9443,13 @@ body.menu-open {
   }
 
   .portfolio-main-heading {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     width: 100%;
     line-height: 110%;
   }
 
   .portfolio-description-text {
-    font-size: 0.813rem;
+    font-size: 0.9rem;
     max-width: 285px;
     line-height: 120%;
   }
@@ -9378,21 +9478,20 @@ body.menu-open {
   }
 
   .portfolio-btn-secondary {
-    width: 140px;
+    width: 150px;
     height: 27px;
     padding: 4px 3px;
     border-radius: 12px;
   }
 
   .portfolio-btn-secondary-text {
-    font-size: 12px;
+    font-size: 12.9px;
   }
 
   .portfolio-card-item {
     width: 260px;
     height: 380px;
     padding: 20px;
-    border-radius: 18px;
   }
 
   .portfolio-card-header-badge {
@@ -9412,6 +9511,22 @@ body.menu-open {
     width: 48px;
     height: 48px;
     border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-card-arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .portfolio-card-arrow-icon svg {
+    width: 58%;
+    height: 58%;
   }
 
   .portfolio-card-services-list {
@@ -9461,22 +9576,22 @@ body.menu-open {
   }
 
   .portfolio-main-heading {
-    font-size: 5.14vw;
+    font-size: 5.5vw;
     width: 27.92vw;
   }
 
   .portfolio-description-text {
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     width: 24.93vw;
   }
 
   .portfolio-action-buttons-wrapper {
-    width: 22.5vw;
+    width: 28vw;
     gap: 0.625vw;
   }
 
   .portfolio-btn-primary {
-    width: 10.83vw;
+    width: 13vw;
     height: 2.36vw;
     padding: 0.42vw 0.69vw;
     border-radius: 1.11vw;
@@ -9484,7 +9599,7 @@ body.menu-open {
   }
 
   .portfolio-btn-primary-text {
-    font-size: 0.97vw;
+    font-size: 1.2vw;
   }
 
   .portfolio-btn-arrow-icon {
@@ -9493,14 +9608,14 @@ body.menu-open {
   }
 
   .portfolio-btn-secondary {
-    width: 11.32vw;
+    width: 14vw;
     height: 2.29vw;
     padding: 0.42vw 0.28vw;
     border-radius: 1.11vw;
   }
 
   .portfolio-btn-secondary-text {
-    font-size: 0.97vw;
+    font-size: 1.2vw;
   }
 
   .portfolio-grid-container {
@@ -9513,6 +9628,10 @@ body.menu-open {
     height: 44.24vw;
     padding: 2.78vw;
     border-radius: 2.08vw;
+  }
+
+  .services-title {
+    font-size: 6rem;
   }
 
   .portfolio-card-header-badge {
@@ -10191,15 +10310,15 @@ body.menu-open {
   }
 
   .team-primary-button {
-    width: 13.75vw;
+    width: 18vw;
     height: 2.5vw;
-    padding: 0.42vw 0.28vw;
-    border-radius: 1.11vw;
+    padding: 0.8vw 0.2vw;
+    border-radius: 2vw;
     gap: 0.14vw;
   }
 
   .team-button-text {
-    font-size: 0.97vw;
+    font-size: 1.2vw;
   }
 
   .team-information-container {
@@ -10208,12 +10327,12 @@ body.menu-open {
   }
 
   .team-secondary-text {
-    font-size: 1.39vw;
+    font-size: 1.9vw;
     max-width: 29.72vw;
   }
 
   .team-main-description {
-    font-size: 1.25vw;
+    font-size: 1.55vw;
     max-width: 44.17vw;
   }
 
@@ -10243,17 +10362,17 @@ body.menu-open {
   }
 
   .team-member-name-frame {
-    padding: 0.28vw 0.69vw;
+    padding: 1vw 0.8vw;
     border-radius: 1.11vw;
     height: 1.94vw;
   }
 
   .team-member-name-text {
-    font-size: 1.39vw;
+    font-size: 1.8vw;
   }
 
   .team-member-position-text {
-    font-size: 1.11vw;
+    font-size: 1.44vw;
   }
 
   .team-arrow-icon svg {
@@ -10553,13 +10672,13 @@ body.menu-open {
   }
 
   .team-primary-button {
-    width: 170px;
+    width: 210px;
     height: 32px;
     padding: 4px 3px;
   }
 
   .team-button-text {
-    font-size: 12px;
+    font-size: 15px;
   }
   .team-information-container {
     flex-direction: column;
@@ -10633,19 +10752,19 @@ body.menu-open {
   }
 
   .team-main-heading {
-    font-size: 2rem;
+    font-size: 2.2rem;
     max-width: 100%;
     line-height: 110%;
   }
 
   .team-primary-button {
-    width: 160px;
+    width: 210px;
     height: 30px;
     padding: 4px 3px;
   }
 
   .team-button-text {
-    font-size: 11px;
+    font-size: 15px;
   }
   .team-information-container {
     flex-direction: column;
@@ -10722,20 +10841,20 @@ body.menu-open {
   }
 
   .team-main-heading {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     max-width: 100%;
     line-height: 110%;
   }
 
   .team-primary-button {
-    width: 150px;
+    width: 190px;
     height: 28px;
-    padding: 3px 2px;
+    padding: 8px 3px;
     gap: 1px;
   }
 
   .team-button-text {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .team-information-container {
@@ -10745,13 +10864,13 @@ body.menu-open {
   }
 
   .team-secondary-text {
-    font-size: 15px;
+    font-size: 18px;
     max-width: 100%;
     line-height: 120%;
   }
 
   .team-main-description {
-    font-size: 13px;
+    font-size: 15px;
     max-width: 100%;
     text-align: left;
     line-height: 130%;
@@ -10796,6 +10915,10 @@ body.menu-open {
     font-size: 14px;
   }
 
+  .team-slider-controls {
+    margin-top: 20px !important;
+  }
+
   .team-member-position-text {
     font-size: 11px;
     line-height: 120%;
@@ -10804,24 +10927,19 @@ body.menu-open {
 
 @media (max-width: 370px) {
   .team-main-heading {
-    font-size: 1.5rem;
-  }
-
-  .team-primary-button {
-    width: 140px;
-    height: 26px;
+    font-size: 2.2rem;
   }
 
   .team-button-text {
-    font-size: 9px;
+    font-size: 13px;
   }
 
   .team-secondary-text {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .team-main-description {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .team-member-photo {
@@ -10829,11 +10947,11 @@ body.menu-open {
   }
 
   .team-member-name-text {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .team-member-position-text {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
@@ -10862,17 +10980,13 @@ body.menu-open {
   transition: all 0.3s ease;
 }
 
-.slider-button:hover {
-  background: #e0e0e0;
-}
-
 .slider-button svg {
   width: 22px;
   height: 22px;
 }
 
-.slider-button.next svg path {
-  stroke: #0c47a0;
+.slider-button.next svg {
+  transform: rotate(180deg);
 }
 
 .status-circles {
@@ -10902,6 +11016,10 @@ body.menu-open {
 .team-members-slider {
   display: flex;
   transition: transform 0.5s ease;
+}
+
+.slider-button.active svg path {
+  fill: #0c47a0;
 }
 
 .team-slide {
@@ -11129,7 +11247,7 @@ body.menu-open {
   }
 
   .main-heading-text {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 24px;
   }
 
@@ -11184,13 +11302,13 @@ body.menu-open {
   }
 
   .main-heading-text {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
     line-height: 110%;
   }
 
   .intro-description-text {
-    font-size: 13px;
+    font-size: 15px;
     max-width: 100%;
     line-height: 130%;
   }
@@ -11205,7 +11323,7 @@ body.menu-open {
   }
 
   .services-heading-title {
-    font-size: 13px;
+    font-size: 15.9px;
     margin-bottom: 12px;
   }
 
@@ -11218,7 +11336,7 @@ body.menu-open {
   .case-study,
   .strategy-technical,
   .security-guarantees-text {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 130%;
   }
 
@@ -11506,7 +11624,7 @@ body.menu-open {
 
 @media (min-width: 720px) and (max-width: 1280px) {
   .site-footer {
-    padding: 50px 30px 40px 30px;
+    padding: 50px 0;
   }
 
   .footer-content {
@@ -11541,7 +11659,7 @@ body.menu-open {
 
 @media (min-width: 480px) and (max-width: 720px) {
   .site-footer {
-    padding: 40px 24px 30px 24px;
+    padding: 50px 0;
   }
 
   .footer-content {
@@ -11582,7 +11700,7 @@ body.menu-open {
 
 @media (max-width: 480px) {
   .site-footer {
-    padding: 32px 20px 24px 20px;
+    padding: 50px 0;
   }
 
   .footer-content {
@@ -11604,7 +11722,7 @@ body.menu-open {
   .contact-info-item,
   .copyright-text,
   .legal-link {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .nav-heading {
@@ -11851,14 +11969,6 @@ body.menu-open {
     gap: 4px;
   }
 
-  .show-more-button {
-    width: 170px;
-  }
-
-  .promo-button {
-    width: 170px;
-  }
-
   .category-link,
   .more-services-desktop {
     font-size: 14px;
@@ -11947,7 +12057,7 @@ body.menu-open {
   }
 
   .big-a-letter {
-    font-size: 2.94rem;
+    font-size: 2.96rem;
   }
 
   .cta-button {
@@ -11979,7 +12089,7 @@ body.menu-open {
   .nav-link,
   .category-link,
   .more-services-desktop {
-    font-size: 0.813rem !important;
+    font-size: 13rem !important;
   }
 
   .phone-number {
@@ -12010,8 +12120,10 @@ body.menu-open {
     margin-bottom: -0.18rem;
   }
 
-  .category-link {
-    font-size: var(--font-size-sm);
+  .category-link,
+  .nav-link,
+  .more-services-desktop {
+    font-size: 13px !important;
   }
 
   .hero {
@@ -12223,6 +12335,11 @@ body.menu-open {
     font-size: 1.75rem;
   }
 
+  .card-bottom {
+    bottom: 2rem;
+    left: 2.2rem;
+  }
+
   .card-hover-text {
     font-size: var(--font-size-base);
     top: 150px;
@@ -12330,7 +12447,7 @@ body.menu-open {
   }
 
   .countdown-labels {
-    gap: 4.688rem;
+    gap: 4.46rem;
     left: 30px;
   }
 
@@ -12438,6 +12555,7 @@ body.menu-open {
 
   .show-more-button {
     font-size: 1rem;
+    width: 160px;
   }
 
   .big-a-letter {
@@ -12628,16 +12746,12 @@ body.menu-open {
   }
 
   .advantages {
-    padding: 1.875rem 0 0 0;
+    padding: 2.4rem 0 0 0;
   }
 
   .advantages-intro {
     gap: 1.25rem;
     margin-bottom: 1.875rem;
-  }
-
-  .section-subtitle {
-    font-size: var(--font-size-sm);
   }
 
   .section-title {
@@ -12958,10 +13072,6 @@ body.menu-open {
 
   .section-title {
     font-size: 2.5rem;
-  }
-
-  .section-subtitle {
-    font-size: var(--font-size-base);
   }
 
   .card-title {
@@ -13510,7 +13620,7 @@ body.menu-open {
   }
 
   .big-a-letter {
-    font-size: 2rem !important;
+    font-size: 2.1rem !important;
   }
 
   .hero-title-line2 p {
@@ -13558,6 +13668,14 @@ body.menu-open {
 
   .medium-card-text p:nth-child(2) {
     font-size: var(--font-size-sm);
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .show-more-button {
+    font-size: 0.9rem;
   }
 
   .services-description {
@@ -14003,10 +14121,6 @@ body.menu-open {
     gap: 30px;
   }
 
-  .section-subtitle {
-    font-size: 1.5rem;
-  }
-
   .section-title {
     font-size: 4.8rem;
   }
@@ -14078,7 +14192,7 @@ body.menu-open {
   }
 
   .card-number {
-    font-size: 1.26vw;
+    font-size: 30px;
   }
 
   .large-icon {
@@ -14200,7 +14314,7 @@ body.menu-open {
 
   .countdown-labels {
     font-size: 1.3rem;
-    gap: 6.8rem;
+    gap: 7.3rem;
     margin-left: 0.2rem;
     margin-top: -0.8rem;
   }
@@ -14350,6 +14464,17 @@ body.menu-open {
     width: 230px;
     height: 40px;
     border-radius: 20px;
+    font-size: 21px;
+  }
+
+  .numbers {
+    font-size: 21px;
+    margin-top: 2px;
+  }
+
+  .details-button,
+  .show-more-button {
+    font-size: 21px;
   }
 
   .hero-title-block {
@@ -14475,6 +14600,10 @@ body.menu-open {
     margin-top: -0.5rem;
   }
 
+  .why-us-section-title {
+    font-size: 5.5rem;
+  }
+
   .show-more-button {
     width: 230px;
     height: 46px;
@@ -14489,12 +14618,8 @@ body.menu-open {
     gap: 30px;
   }
 
-  .section-subtitle {
-    font-size: 1.5rem;
-  }
-
   .section-title {
-    font-size: 4.8rem;
+    font-size: 5.5rem;
   }
 
   .advantage-point {
@@ -14816,22 +14941,22 @@ body.menu-open {
   }
 
   .dot-1 {
-    right: -4.3vw;
+    right: -70px;
     top: 1.8px;
     height: 8px;
     width: 8px;
   }
 
   .dot-2 {
-    right: -13.76vw;
+    right: -222px;
     top: 1.8px;
     height: 8px;
     width: 8px;
   }
 
   .dot-3 {
-    right: -13.04vw;
-    top: 47px;
+    right: -212px;
+    top: 44px;
     height: 8px;
     width: 8px;
   }
@@ -14845,7 +14970,11 @@ body.menu-open {
   }
 
   .statistics-header {
-    width: 278px;
+    width: 340px;
+  }
+
+  .statistics-header p {
+    font-size: 2.75rem;
   }
 
   .advantage-card {
@@ -14857,7 +14986,20 @@ body.menu-open {
   }
 
   .card-title {
-    font-size: 2.6rem;
+    font-size: 3.04rem;
+  }
+
+  .number-text {
+    font-size: 1.7rem;
+  }
+
+  .card-hover-text {
+    font-size: 1.7rem;
+  }
+
+  .card-title:nth-child(2) {
+    max-width: 340px;
+    margin-right: auto;
   }
 
   .why-us-section-subtitle {
@@ -14874,6 +15016,10 @@ body.menu-open {
     border-radius: 50%;
   }
 
+  .main-title-h1 {
+    font-size: 5.52vw !important;
+  }
+
   .service-card-title {
     flex-shrink: 0;
   }
@@ -14887,6 +15033,10 @@ body.menu-open {
     position: absolute;
     bottom: 14px;
     right: 0;
+  }
+
+  .show-more-button {
+    font-size: 14px;
   }
 
   .service-card {
@@ -14933,6 +15083,18 @@ body.menu-open {
     );
   }
 
+  .section-title {
+    font-size: 6rem;
+  }
+
+  .advantages {
+    padding: 5rem 0;
+  }
+
+  .feature-item {
+    font-size: 14.5px;
+  }
+
   .card-hover-divider {
     position: absolute;
     width: 100%;
@@ -14945,13 +15107,32 @@ body.menu-open {
   }
 
   .card-hover-divider-grey {
-    top: -40px;
+    top: -60px;
     width: 100%;
   }
 
   .countdown-label,
   .countdown-unit {
-    font-size: 1.3rem;
+    font-size: 15.5px;
+  }
+
+  .services-description {
+    font-size: 1.5rem;
+  }
+
+  .promo-button {
+    font-size: 19.5px;
+    width: 200px;
+  }
+}
+
+@media (min-width: 1630px) and (max-width: 1870px) {
+  .card-hover-divider-grey {
+    top: -30px !important;
+  }
+
+  .countdown-labels {
+    gap: 132px;
   }
 }
 
@@ -14973,6 +15154,10 @@ body.menu-open {
     font-size: 14px;
   }
 
+  .details-button {
+    font-size: 14px;
+  }
+
   .hero-description p,
   .hero-description span {
     font-size: 1.24rem;
@@ -14987,17 +15172,17 @@ body.menu-open {
   }
 
   .dot-1 {
-    right: -4.5vw;
+    right: -70px;
     top: 1.8px;
   }
 
   .dot-2 {
-    right: -14vw;
+    right: -222px;
     top: 1.8px;
   }
 
   .dot-3 {
-    right: -13.26vw;
+    right: -212px;
     top: 44px;
   }
 
@@ -15043,9 +15228,9 @@ body.menu-open {
 
   .countdown-labels {
     font-size: 1.3rem;
-    gap: 6.8rem;
-    margin-left: 0.2rem;
-    margin-top: -0.8rem;
+    gap: 105px;
+    margin-left: -1.3rem;
+    margin-top: -2rem;
   }
 
   .timer-separator {
@@ -15122,18 +15307,34 @@ body.menu-open {
   }
 
   .dot-1 {
-    right: -4.9vw;
+    right: -70px;
     top: 1.8px;
   }
 
   .dot-2 {
-    right: -14.9vw;
+    right: -222px;
     top: 1.8px;
   }
 
   .dot-3 {
-    right: -14.04vw;
+    right: -212px;
     top: 44px;
+  }
+
+  .show-more-button {
+    font-size: 14px;
+  }
+
+  .number-badge span {
+    font-size: 22px;
+  }
+
+  .card-hover-divider-grey {
+    top: -70px;
+  }
+
+  .services-description {
+    font-size: 1.52rem;
   }
 
   .card-title {
@@ -15178,6 +15379,19 @@ body.menu-open {
 
   .geo-icon-small {
     display: none;
+  }
+
+  .statistics-header {
+    max-width: 400px;
+  }
+
+  .services-description {
+    font-size: 1.4vw;
+  }
+
+  .service-badge,
+  .footer-badge {
+    font-size: 1.27rem;
   }
 
   .geo-icon-large {

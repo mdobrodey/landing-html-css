@@ -522,6 +522,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const circles = document.querySelectorAll(
       '.team-slider-controls .status-circle'
     );
+    const prevBtn = document.querySelector(
+      '.team-slider-controls .slider-button.prev'
+    );
+    const nextBtn = document.querySelector(
+      '.team-slider-controls .slider-button.next'
+    );
 
     if (!slides.length || !circles.length) return;
 
@@ -541,17 +547,32 @@ document.addEventListener('DOMContentLoaded', () => {
           circle.classList.remove('active');
         }
       });
+
+      if (prevBtn) {
+        if (currentSlide === 0) {
+          prevBtn.classList.remove('active');
+        } else {
+          prevBtn.classList.add('active');
+        }
+      }
+
+      if (nextBtn) {
+        if (currentSlide === slides.length - 1) {
+          nextBtn.classList.remove('active');
+        } else {
+          nextBtn.classList.add('active');
+        }
+      }
     }
 
     window.changeSlide = function (direction) {
-      currentSlide += direction;
+      const newSlide = currentSlide + direction;
 
-      if (currentSlide < 0) {
-        currentSlide = slides.length - 1;
-      } else if (currentSlide >= slides.length) {
-        currentSlide = 0;
+      if (newSlide < 0 || newSlide >= slides.length) {
+        return;
       }
 
+      currentSlide = newSlide;
       updateSlider();
     };
 
